@@ -1,7 +1,7 @@
-import random
 import os
+import random
 
-from solution import hackerrank
+from solution_hackerrank import hackerrank
 
 
 class RandomTestcaseHackerRank:
@@ -14,6 +14,12 @@ class RandomTestcaseHackerRank:
     
      
 class TestcaseTxtToArgvaluesHackerRank:
+
+    def input_F1(self, inputs: list[str]):
+        return list(map(int, inputs[1].split()))
+    
+    def output_F1(self, outputs: list[str]) -> list[int]:
+        return list(map(int, outputs[0].split()))
 
     def input_solveMeFirst(self, inputs: list[str]):
         a = int(inputs[0])
@@ -275,12 +281,4 @@ random_testcase_hackerrank = RandomTestcaseHackerRank()
 testcase_txt_to_argvalues_hackerrank = TestcaseTxtToArgvaluesHackerRank()
 testcase_argvalues_to_txt_hackerrank = TestcaseArgvaluesToTxtHackerRank()
 
-def main():
-
-    # Processing
-    testcase_file_remove('HR', 'solveMeFirst', 'R', 1, 5)
-
-    pass
-
-if __name__ == "__main__":
-    main()
+#argvalues = testcase_txt_to_argvalues('HR', 'F1', 'F', 1, testcase_txt_to_argvalues_hackerrank.input_F1, testcase_txt_to_argvalues_hackerrank.output_F1, 1)
