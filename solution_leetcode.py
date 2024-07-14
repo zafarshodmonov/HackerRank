@@ -1,3 +1,4 @@
+import heapq
 
 
 class LeetCodeTest:
@@ -38,6 +39,12 @@ class LeetCodeTest:
             (15, ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"])
         ]
     
+    @staticmethod
+    def f506_test() -> list[tuple]:
+        return [
+            ([5,4,3,2,1], ["Gold Medal","Silver Medal","Bronze Medal","4","5"])
+        ]
+
     @staticmethod
     def F509_test():
         return [
@@ -213,6 +220,33 @@ class LeetCode(LeetCodeTest):
             else:
                 rel.append(help_4(i))
         return rel 
+    
+    def f506(self, nums: list[int]) -> list[str]:
+
+        N = len(score)
+
+        # Create a heap of pairs (score, index)
+        heap = []
+        for index, score in enumerate(score):
+            heapq.heappush(heap, (-score, index))
+        
+        # Assign ranks to athletes
+        rank = [0] * N
+        place = 1
+        while heap:
+            original_index = heapq.heappop(heap)[1]
+            if place == 1:
+                rank[original_index] = "Gold Medal"
+            elif place == 2:
+                rank[original_index] = "Silver Medal"
+            elif place == 3:
+                rank[original_index] = "Bronze Medal"
+            else:
+                rank[original_index] = str(place)
+            place +=1
+            
+        return rank
+
 
     def F509(self, n: int) -> int:
         if n < 2:

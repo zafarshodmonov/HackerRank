@@ -6,6 +6,12 @@ class CodeForcesTest:
         return [
             (8, 'YES')
         ]
+
+    @staticmethod   
+    def f282A_test() -> list[tuple]:
+        return [
+            (['X++', '--X'], 0)
+        ]
     
     pass
     
@@ -27,6 +33,33 @@ class CodeForces(CodeForcesTest):
 
         # Output
         print(ans)
+
+    def f282A(self, nums: list[str]) -> int:
+        sana = 0
+        for s in nums:
+            if (s == '++X') or (s == 'X++'):
+                sana += 1
+            else:
+                sana -= 1
+        return sana
+    
+    def f282A_p(self):
+        
+        # Input
+        def inp():
+            rel = []
+            n = int(input())
+            for i in range(n):
+                rel.append(input())
+            return rel
+        
+        nums = inp()
+
+        # Processing
+        ans = self.f282A(nums)
+
+        # Output
+        print(ans)
     
     pass
 
@@ -34,7 +67,7 @@ class CodeForces(CodeForcesTest):
 codeforces = CodeForces()
 
 def main() -> None:
-    codeforces.f4A_p()
+    codeforces.f282A_p()
 
 
 if __name__ == "__main__":
