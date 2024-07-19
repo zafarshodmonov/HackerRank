@@ -12,6 +12,19 @@ class RandomTestcaseHackerRank:
         b = random.randint(1, 1000)
         return a, b
     
+
+class RandomTestcaseCodeWars:
+
+    @staticmethod
+    def f2(self):
+        the_number_of_nucleotides_in_DNA = random.randint(1, 1000)
+        DNA = ''
+        nucleotides = {1: 'G', 2: 'C', 3: 'A', 4: 'T'}
+        for i in range(the_number_of_nucleotides_in_DNA):
+            ch = nucleotides[random.randint(1, 4)]
+            DNA += ch
+        return DNA
+
      
 class TestcaseTxtToArgvaluesHackerRank:
 
